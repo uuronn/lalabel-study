@@ -16,3 +16,10 @@ Route::get("/register", [\App\Http\Controllers\RegisterController::class, 'creat
 
 Route::post("/register", [\App\Http\Controllers\RegisterController::class, 'store'])
     ->middleware('guest');
+
+Route::get("/login", [\App\Http\Controllers\LoginController::class, 'index'])
+    ->middleware('guest')
+    ->name('login');
+
+Route::post("/login", [\App\Http\Controllers\LoginController::class, 'authenticate'])
+    ->middleware('guest');
